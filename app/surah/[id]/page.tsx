@@ -41,7 +41,7 @@ const Page = ({ params }: { params: Params }) => {
   };
 
   const fetchData = async () => {
-    const apiUrl = "http://api.alquran.cloud/v1/surah";
+    const apiUrl = "https://api.alquran.cloud/v1/surah";
     try {
       const response = await fetch(apiUrl);
       const data = await response.json();
@@ -94,7 +94,7 @@ const Page = ({ params }: { params: Params }) => {
 
   if (loading) {
     return (
-      <div className="h-screen w-full flex justify-center items-center text-xl">
+      <div className="h-screen w-full flex justify-center items-center text-xl dark:text-white">
         Loading...
       </div>
     );
@@ -102,7 +102,7 @@ const Page = ({ params }: { params: Params }) => {
 
   if (!surah || surah.length < 2) {
     return (
-      <div className="h-screen w-full flex justify-center items-center text-xl">
+      <div className="h-screen w-full flex justify-center items-center text-xl dark:text-white">
         API Error
       </div>
     );
@@ -131,7 +131,7 @@ const Page = ({ params }: { params: Params }) => {
       <div className="px-3 md:px-20 grid grid-cols-3">
         <div>
           {prevSurah && (
-            <div className="text-left my-4 text-slate-600/60 underline">
+            <div className="text-left my-4 text-slate-600/60 underline dark:text-white">
               <h2 className="text-xs md:text-lg">
                 <Link href={`/surah/${prevSurah.number}`}>
                   {prevSurah.englishName}
@@ -154,7 +154,7 @@ const Page = ({ params }: { params: Params }) => {
         </div>
         <div>
           {nextSurah && (
-            <div className="text-right my-4 text-slate-600/60 underline">
+            <div className="text-right my-4 text-slate-600/60 underline dark:text-white">
               <h2 className="text-xs md:text-lg">
                 <Link href={`/surah/${nextSurah.number}`}>
                   {nextSurah.englishName}
@@ -173,7 +173,7 @@ const Page = ({ params }: { params: Params }) => {
       surah[0].englishName === "At-Tawba" ? (
         <></>
       ) : (
-        <h1 className="text-xl md:text-2xl text-center font-semibold my-5">
+        <h1 className="text-xl md:text-2xl text-center font-semibold my-5 dark:text-white">
           بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
         </h1>
       )}
@@ -193,17 +193,17 @@ const Page = ({ params }: { params: Params }) => {
         return (
           <div
             key={ayahArab?.numberInSurah || `fallback-key-${index}`}
-            className="odd:bg-slate-100/60 even:white px-3 md:px-20 py-3"
+            className="odd:bg-slate-100/60 even:white px-3 md:px-20 py-3 dark:odd:bg-gray-900"
           >
             <div className="flex justify-between">
-              <h2 className="font-semibold text-slate-500 text-lg md:text-xl lg:text-2xl text-start my-2 mr-2">
+              <h2 className="font-semibold text-slate-500 text-lg md:text-xl lg:text-2xl text-start my-2 mr-2 dark:text-white">
                 {ayahArab.numberInSurah}.
               </h2>
-              <h2 className="font-semibold text-lg md:text-xl lg:text-2xl text-end my-2">
+              <h2 className="font-semibold text-lg md:text-xl lg:text-2xl text-end my-2 dark:text-white">
                 {ayahText}
               </h2>
             </div>
-            <p className="text-xs md:text-sm lg:text-base text-left my-2">
+            <p className="text-xs md:text-sm lg:text-base text-left my-2 dark:text-white">
               {ayahTranslation.text}
             </p>
           </div>

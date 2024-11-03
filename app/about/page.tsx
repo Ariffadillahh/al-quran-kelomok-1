@@ -11,7 +11,7 @@ const page = () => {
     <div className="px-3 md:px-10 pt-[70px]">
       <div>
         <div className="w-full h-full md:py-20 py-10">
-          <h1 className="text-xl md:text-3xl lg:text-4xl text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-black to-green-900">
+          <h1 className="text-xl md:text-3xl lg:text-4xl text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-black to-green-900 dark:text-green-900">
             Our Team
           </h1>
           <div className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 gap-3 my-5">

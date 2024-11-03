@@ -34,11 +34,11 @@ const Navbar = () => {
       <div
         className={
           isSticky
-            ? "z-50 fixed w-full  bg-white/30 backdrop-blur-sm duration-100 shadow-md top-0"
+            ? "z-50 fixed w-full  bg-white/30 dark:bg-black/30 backdrop-blur-sm duration-100 shadow-md top-0"
             : "fixed  w-full  duration-100 z-50 top-0"
         }
       >
-        <div className="justify-between flex w-full md:px-16 pt-1 text-xl">
+        <div className="justify-between flex w-full md:px-16 pt-1 text-xl items-center">
           <div className="md:w-1/2  font-semibold">
             <Link href="/">
               {" "}
@@ -46,7 +46,7 @@ const Navbar = () => {
             </Link>
           </div>
           <div>
-            <button className="text-2xl p-3 md:hidden" onClick={handleToggle}>
+            <button className="text-3xl px-3  md:hidden " onClick={handleToggle}>
               {!toggle ? <HiMiniBars3BottomRight /> : <IoClose />}
             </button>
           </div>
@@ -57,7 +57,7 @@ const Navbar = () => {
               Sejarah
             </a>
             <Link href="/about">
-              <button className=" px-4 py-1.5 rounded-md text-base  bg-black hover:text-black hover:bg-transparent hover:border border-black text-white duration-200 ">
+              <button className=" px-4 py-1.5 rounded-md text-base  border-2 text-green-900 border-green-900  duration-200 ">
                 About
               </button>
             </Link>
@@ -66,8 +66,8 @@ const Navbar = () => {
         <div
           className={
             !toggle
-              ? " bg-white absolute -left-[100%] transition-all duration-200"
-              : " bg-white absolute transition-all duration-200 left-3 rounded-lg mt-3 drop-shadow-lg"
+              ? " bg-white absolute -left-[100%] transition-all duration-200 dark:bg-gray-900"
+              : " bg-white absolute transition-all duration-200 left-3 rounded-lg mt-3 drop-shadow-lg dark:bg-gray-900 dark:text-white"
           }
         >
           <Link href="/juz">

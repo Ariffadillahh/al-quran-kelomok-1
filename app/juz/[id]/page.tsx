@@ -145,19 +145,19 @@ const Page = ({ params }: { params: Params }) => {
                 return (
                   <div
                     key={ayah.number}
-                    className="py-4 odd:bg-slate-100/60 even:bg-white px-3 md:px-20"
+                    className="py-4 odd:bg-slate-100/60 even:bg-white px-3 md:px-20 dark:odd:bg-gray-900 dark:even:bg-black"
                   >
                     {isNewSurah && (
                       <>
                         <div className="text-center py-4">
-                          <h2 className="text-lg md:text-2xl font-bold mb-3">
+                          <h2 className="text-lg md:text-2xl font-bold mb-3 dark:text-white">
                             {ayah.surah.englishName} (
                             {ayah.surah.englishNameTranslation})
                           </h2>
                         </div>
                         {ayah.surah.englishName !== "Al-Faatiha" &&
                         ayah.surah.englishName !== "At-Tawba" ? (
-                          <h1 className="text-xl md:text-2xl text-center font-semibold mb-5">
+                          <h1 className="text-xl md:text-2xl text-center font-semibold mb-5 dark:text-white">
                             بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
                           </h1>
                         ) : null}
@@ -165,14 +165,14 @@ const Page = ({ params }: { params: Params }) => {
                     )}
                     <div>
                       <div className="flex justify-between">
-                        <h2 className="font-semibold text-slate-500 text-lg md:text-xl lg:text-2xl text-start my-2 mr-2">
+                        <h2 className="font-semibold text-slate-500 dark:text-white text-lg md:text-xl lg:text-2xl text-start my-2 mr-2">
                           {ayah.numberInSurah}.
                         </h2>
-                        <h2 className="font-semibold text-lg md:text-xl lg:text-2xl text-end my-2">
+                        <h2 className="font-semibold text-lg md:text-xl lg:text-2xl text-end my-2 dark:text-white">
                           {ayahText}
                         </h2>
                       </div>
-                      <p className="text-xs md:text-sm lg:text-base text-left my-2">
+                      <p className="text-xs md:text-sm lg:text-base text-left my-2 dark:text-white">
                         {ayah.text}
                       </p>
                     </div>

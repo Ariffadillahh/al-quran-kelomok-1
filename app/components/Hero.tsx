@@ -14,10 +14,10 @@ const Hero = () => {
   ];
   return (
     <div className="px-3 md:px-10 pt-[70px] md:pt-[40px] ">
-      <div className="md:flex  mb-10 items-center ">
+      <div className="md:flex  mb-10 items-center mt-7">
         <div className="md:ml-10  md:w-1/2">
           <h1 className="mb-4 text-xl font-extrabold tracking-tight leading-none text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
-            Marilah<span className="italic "><FlipWords words={words} /></span>Al&apos;Quraan.
+            Marilah<span className="italic "><FlipWords words={words} /></span>Al&apos;Quran.
           </h1>
           <p className="mb-8 text-base font-normal ">
             Temukan kemudahan dalam membaca ayat-ayat suci, tafsir, dan
