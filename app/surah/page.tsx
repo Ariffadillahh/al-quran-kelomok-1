@@ -2,8 +2,17 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
-const Page = () => {
-  const [surah, setSurah] = useState<any[]>([]);
+const Page = () => 
+{
+  interface Surah {
+    number: number;
+    name: string;
+    englishName: string;
+    englishNameTranslation: string;
+    numberOfAyahs: number;
+    revelationType: string;
+  }
+  const [surah, setSurah] = useState<Surah[]>([]);
   const [filtr, setFilter] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
 
