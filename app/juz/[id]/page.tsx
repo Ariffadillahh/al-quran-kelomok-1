@@ -7,8 +7,22 @@ interface Params {
   id: string;
 }
 
+interface Ayah {
+  number: number;
+  numberInSurah: number;
+  text: string;
+  surah: Surah;
+  textUthmani?: string; // Tambahkan ini jika perlu
+}
+
+interface Surah {
+  number: number;
+  englishName: string;
+  englishNameTranslation: string;
+}
+
 const Page = ({ params }: { params: Params }) => {
-  const [ayahsCombain, setAyahsCombain] = useState<any[]>([]);
+  const [ayahsCombain, setAyahsCombain] = useState<Ayah[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [isSticky, setIsSticky] = useState<boolean>(false);
 
@@ -29,10 +43,12 @@ const Page = ({ params }: { params: Params }) => {
       const dataIndo = await resIndo.json();
       const dataUthmani = await resUthmani.json();
 
-      const combinedAyahs = dataIndo.data.ayahs.map((ayah, index) => ({
-        ...ayah,
-        textUthmani: dataUthmani.data.ayahs[index]?.text,
-      }));
+      const combinedAyahs = dataIndo.data.ayahs.map(
+        (ayah: Ayah[], index: number) => ({
+          ...ayah,
+          textUthmani: dataUthmani.data.ayahs[index]?.text,
+        })
+      );
 
       setAyahsCombain(combinedAyahs);
     } catch (error) {
@@ -123,10 +139,9 @@ const Page = ({ params }: { params: Params }) => {
                     ? ayah.textUthmani // Tampilkan ayat pertama "Bismillah" untuk "Al-Faatiha"
                     : ayah.numberInSurah === 1
                     ? ayah.textUthmani
-                        .replace(/بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ/, "")
+                        ?.replace(/بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ/, "")
                         .trim() // Hapus "Bismillah" jika bukan "Al-Faatiha"
                     : ayah.textUthmani;
-
                 return (
                   <div
                     key={ayah.number}
@@ -140,17 +155,14 @@ const Page = ({ params }: { params: Params }) => {
                             {ayah.surah.englishNameTranslation})
                           </h2>
                         </div>
-                        {ayah.surah.englishName === "Al-Faatiha" ||
-                        ayah.surah.englishName === "At-Tawba" ? (
-                          <> </>
-                        ) : (
+                        {ayah.surah.englishName !== "Al-Faatiha" &&
+                        ayah.surah.englishName !== "At-Tawba" ? (
                           <h1 className="text-xl md:text-2xl text-center font-semibold mb-5">
                             بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ
                           </h1>
-                        )}
+                        ) : null}
                       </>
                     )}
-
                     <div>
                       <div className="flex justify-between">
                         <h2 className="font-semibold text-slate-500 text-lg md:text-xl lg:text-2xl text-start my-2 mr-2">
@@ -160,7 +172,6 @@ const Page = ({ params }: { params: Params }) => {
                           {ayahText}
                         </h2>
                       </div>
-
                       <p className="text-xs md:text-sm lg:text-base text-left my-2">
                         {ayah.text}
                       </p>

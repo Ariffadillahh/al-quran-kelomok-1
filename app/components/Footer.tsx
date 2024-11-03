@@ -95,7 +95,7 @@ const Footer = () => {
               >
                 <svg
                   className="w-4 h-4"
-                  ariaHidden="true"
+                  aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
                   viewBox="0 0 8 19"
@@ -114,7 +114,7 @@ const Footer = () => {
               >
                 <svg
                   className="w-4 h-4"
-                  ariaHidden="true"
+                  aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
                   viewBox="0 0 21 16"
@@ -129,7 +129,7 @@ const Footer = () => {
               >
                 <svg
                   className="w-4 h-4"
-                  ariaHidden="true"
+                  aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
                   viewBox="0 0 20 17"
@@ -148,7 +148,7 @@ const Footer = () => {
               >
                 <svg
                   className="w-4 h-4"
-                  ariaHidden="true"
+                  aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
                   viewBox="0 0 20 20"
@@ -167,7 +167,7 @@ const Footer = () => {
               >
                 <svg
                   className="w-4 h-4"
-                  ariaHidden="true"
+                  aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
                   viewBox="0 0 20 20"

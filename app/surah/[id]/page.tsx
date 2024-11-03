@@ -7,13 +7,25 @@ interface Params {
   id: string;
 }
 
+interface Ayah {
+  numberInSurah: number;
+  text: string;
+}
+
+interface Surah {
+  number: number;
+  englishName: string;
+  englishNameTranslation: string;
+  ayahs: Ayah[];
+}
+
 const Page = ({ params }: { params: Params }) => {
-  const [surah, setSurah] = useState<any[]>([]);
-  const [allSurah, setAllSurah] = useState<any[]>([]);
-  const [prevSurah, setPrevSurah] = useState<any | null>(null);
-  const [nextSurah, setNextSurah] = useState<any | null>(null);
+  const [surah, setSurah] = useState<Surah[]>([]);
+  const [allSurah, setAllSurah] = useState<Surah[]>([]);
+  const [prevSurah, setPrevSurah] = useState<Surah | null>(null);
+  const [nextSurah, setNextSurah] = useState<Surah | null>(null);
   const [isSticky, setIsSticky] = useState<boolean>(false);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
 
   const fetchSurah = async () => {
     const apiUrl = `https://api.alquran.cloud/v1/surah/${params.id}/editions/quran-uthmani,id.indonesian`;
@@ -180,7 +192,7 @@ const Page = ({ params }: { params: Params }) => {
 
         return (
           <div
-            key={ayahArab.number}
+            key={ayahArab?.numberInSurah || `fallback-key-${index}`}
             className="odd:bg-slate-100/60 even:white px-3 md:px-20 py-3"
           >
             <div className="flex justify-between">
