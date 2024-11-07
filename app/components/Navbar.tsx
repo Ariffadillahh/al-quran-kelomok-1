@@ -53,9 +53,6 @@ const Navbar = () => {
           <div className="md:w-1/2 p-4 space-x-16 uppercase md:justify-end font-sans hidden md:flex md:items-center">
             <Link href="/juz">Juz</Link>
             <Link href="/surah">Surah</Link>
-            <a href="#" className="cursor-not-allowed">
-              Sejarah
-            </a>
             <Link href="/about">
               <button className=" px-4 py-1.5 rounded-md text-base  border-2 text-green-900 border-green-900  duration-200 ">
                 About
@@ -86,14 +83,6 @@ const Navbar = () => {
               Surah
             </button>
           </Link>
-          <a href="#" className="cursor-not-allowed">
-            <button
-              onClick={handleToggle}
-              className="w-full ps-3 py-2 border-b text-start"
-            >
-              Sejarah
-            </button>
-          </a>
           <Link href="/about">
             <button
               onClick={handleToggle}
